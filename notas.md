@@ -23,3 +23,14 @@
 ```
 
 El name="option" compartido es lo que convierte esas 4 radios en un **single select nativo**
+
+## 2. JavaScript - menu
+usar el menú para navegar entre pantallas. Según el botón que toque, una sección se oculta y la otra se muestra.
+
+*Cómo funciona:
+
+1. Con `document.getElementById()` obtengo las secciones `#mode-edit` y `#mode-quiz`.
+2. Con `addEventListener("click", ...)` escucho los clics de cada botón del menú.
+3. Dentro de cada listener: `classList.add("hidden")` oculta la sección que no corresponde y `classList.remove("hidden")` muestra la elegida.
+
+
