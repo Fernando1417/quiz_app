@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section id="menu-modos">
+      <h1>Menu</h1>
+      <button id="mode-edit-btn">Crear Pregunta</button>
+      <button id="mode-quiz-btn">Quiz</button>
+    </section>
+
+    <!-- Parte para crear preguntas -->
+    <section id="mode-edit">
+      <h1>Crea una pregunta</h1>
+
+      <form id="question-form">
+        <input
+          type="text"
+          id="question-input"
+          placeholder="Pregunta"
+          required
+        />
+        <input
+          type="text"
+          class="option-input"
+          placeholder="Opción A"
+          required
+        />
+        <input
+          type="text"
+          class="option-input"
+          placeholder="Opción B"
+          required
+        />
+        <input
+          type="text"
+          class="option-input"
+          placeholder="Opción C"
+          required
+        />
+        <input
+          type="text"
+          class="option-input"
+          placeholder="Opción D"
+          required
+        />
+
+        <div id="correct-options">
+          <h4>Selecciona la respuesta correcta:</h4>
+          <label>
+            <input type="radio" name="correct" value="0" required />
+            A es la opcion correcta
+          </label>
+          <label>
+            <input type="radio" name="correct" value="1" />
+            B es la opcion correcta
+          </label>
+          <label>
+            <input type="radio" name="correct" value="2" />
+            C es la opcion correcta
+          </label>
+          <label>
+            <input type="radio" name="correct" value="3" />
+            D es la opcion correcta
+          </label>
+        </div>
+
+        <button type="submit" id="save-question-btn">Add Question</button>
+      </form>
+    </section>
+
+    <!-- Parte para crear preguntas -->
+    <section id="mode-quiz">
+      <h1>Quiz</h1>
+
+      <!-- Question display area -->
+      <div id="question-display">
+        <h2 id="question-text">Question will appear here</h2>
+        <div id="options-container">
+          <label
+            ><input type="radio" name="option" data-option="0" />
+            Option A
+          </label>
+          <label
+            ><input type="radio" name="option" data-option="1" />
+            Option B
+          </label>
+          <label
+            ><input type="radio" name="option" data-option="2" />
+            Option C
+          </label>
+          <label
+            ><input type="radio" name="option" data-option="3" />
+            Option D
+          </label>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
