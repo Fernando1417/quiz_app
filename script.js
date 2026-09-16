@@ -98,7 +98,11 @@ function mostrarPreguntas() {
 let respondidas = 0;
 let correctas = 0;
 
+function mostrarResultados() {
 
+  document.getElementById("espacio-resultados").textContent = 
+  "Respondidas: " + respondidas + "/" + preguntas.length + " · Correctas: " + correctas;
+}
 
 function marcaOpcion(opcionesContainer, pregunta){
   // marcar cada opcion como correcta o incorrecta
@@ -141,7 +145,7 @@ document.getElementById("espacio-preguntas").addEventListener("click", (evento) 
 
 marcaOpcion(opcionesContainer, pregunta)
 
-
+mostrarResultados();
 });
 
 
