@@ -8,3 +8,10 @@ body {
 .ocultar {
   display: none;
 }
+
+
+.separador {
+  height: 1px;
+  margin: 7px;
+  background-color: gray;
+}
