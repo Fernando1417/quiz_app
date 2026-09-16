@@ -34,7 +34,7 @@ usar el menú para navegar entre pantallas. Según el botón que toque, una secc
 2.  con esto oculto: .classList.add("ocultar");
 3.  con eso muestro: .classList.remove("ocultar");
 
-## preguntas con JavaScrip
+## 3\. preguntas con JavaScrip
 
 Las preguntas deben de estar en una estrucutra de datos
 
@@ -72,4 +72,25 @@ otro punto importate es 
 
 html += \`\</div>\`;
 
- con += html voy agregndo cosas al html para despues solo insertar este objeto
+ con += html voy agregndo cosas al html para despues solo insertar este objeto 
+
+## 4, como revisar la respuesta de las preguntas 
+
+agregar un boton que revise por pregunta:
+
+\<button class="revisar-btn">Revisar\</button>
+
+ahora tengo un prblema con este boton , como lo hago unico, para que cada pregunta tenga su propio boton 
+
+puedo usar data-
+
+esto me premite usar `elemento.dataset.indice` y me da el indice 
+
+quiero poder tener una comparacion que sea, idice seleccionado es igual a indice de respeusta 
+
+deberia poder guardar:
+
+*   cuantas se an respodido 
+*   cuantas son correctas
+
+el porblema es seleecionar lo que quiero
