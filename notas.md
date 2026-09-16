@@ -93,4 +93,10 @@ deberia poder guardar:
 *   cuantas se an respodido 
 *   cuantas son correctas
 
-el porblema es seleecionar lo que quiero
+el porblema es seleecionar lo que quiero 
+
+## 5\. editar preguntas
+
+estrategia, el HTML que estoy agregado con JS, copiarlo y modificarlo para que ahora se un input 
+
+crear una funcion como la de edit que cambie preguntas

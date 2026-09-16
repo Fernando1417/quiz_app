@@ -185,38 +185,64 @@ function mostrarPreguntasEdit() {
 
   let html = "";
 
-  // for para todas las preguntas 
+  // for para todas las preguntas
   for (let indice = 0; indice < preguntas.length; indice++) {
     const pregunta = preguntas[indice];
 
-
-
-    // dentro de for deberia usar class no ID en este for 
     html += `
-      <h2 class="question-text">${pregunta.question}</h2> 
-      <div class="options-container" data-indice="${indice}">
+      <div class="edit-container" data-indice="${indice}">
+        <input type="text" class="edit-question-input" value="${pregunta.question}" />
     `;
 
-    // como son varias opciones de cada pregunta
-    // esto tambien flexible para el nuemro de opciones
+    // un input de texto por opcion + un radio para marcar cual es la correcta
     for (let i = 0; i < pregunta.options.length; i++) {
-      // este for puede ser su propia funcion 
+      const checked = i === pregunta.respuestaIndex ? "checked" : "";
       html +=
+        '<div class="edit-option-row">' +
+        '<input type="text" class="edit-option-input" data-option="' + i + '" value="' + pregunta.options[i] + '" />' +
         '<label>' +
-        '<input type="radio" name="option-' + indice + '" data-option="' + i + '" value="' + i + '" />' +
-        pregunta.options[i] +
-        '</label>';
+        '<input type="radio" name="edit-correct-' + indice + '" value="' + i + '" ' + checked + ' /> correcta' +
+        '</label>' +
+        '</div>';
     }
 
-    html += `</div>
-    <button class="guardar-btn" data-indice="${indice}">guardar</button>
+    html += `
+        <button class="guardar-edit-btn" data-indice="${indice}">Guardar</button>
+      </div>
 
-    <div class="separador"></div>
-
+      <div class="separador"></div>
     `;
   }
 
   display.innerHTML = html;
 }
 
-mostrarPreguntasEdit() 
+// guardar los cambios de una pregunta existente
+// esta es la parte complicada 
+document.getElementById("espacio-edit").addEventListener("click", (evento) => {
+  // si no es el boton de editar, salir
+  if (!evento.target.classList.contains("guardar-edit-btn")) return;
+
+  // consigo el indece
+  const indice = Number(evento.target.dataset.indice);
+  const editContainer = document.querySelector(
+    '.edit-container[data-indice="' + indice + '"]'
+  );
+
+  //repito la parte de nueva pregunta 
+  const questionInput = editContainer.querySelector(".edit-question-input");
+  const optionInputs = editContainer.querySelectorAll(".edit-option-input");
+  const correctInput = editContainer.querySelector(
+    'input[name="edit-correct-' + indice + '"]:checked'
+  );
+
+  preguntas[indice].question = questionInput.value;
+  preguntas[indice].options = Array.from(optionInputs).map((input) => input.value);
+  preguntas[indice].respuestaIndex = Number(correctInput.value);
+
+  mostrarPreguntas();
+  mostrarPreguntasEdit();
+});
+
+mostrarPreguntasEdit();
+
