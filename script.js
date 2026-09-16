@@ -144,3 +144,28 @@ mostrarPreguntas();
 
 
 
+// guardar pregunta nueva
+
+
+
+
+document.getElementById("guardar-btn").addEventListener("click", (evento) => {
+
+
+  const questionInput = document.getElementById("question-input");
+  const optionInputs = document.querySelectorAll(".option-input");
+  const correctOptionInput = document.querySelector('input[name="correct"]:checked');
+
+  const nuevaPregunta = {
+    question: questionInput.value,
+    options: Array.from(optionInputs).map((input) => input.value),
+    respuestaIndex: Number(correctOptionInput.value),
+  };
+
+  preguntas.push(nuevaPregunta);
+
+  mostrarPreguntas(); // muy imporate! crear esto
+
+});
+
+
