@@ -24,13 +24,52 @@
 
 El name="option" compartido es lo que convierte esas 4 radios en un **single select nativo**
 
-## 2. JavaScript - menu
+## 2\. JavaScript - menu
+
 usar el menú para navegar entre pantallas. Según el botón que toque, una sección se oculta y la otra se muestra.
 
-*Cómo funciona:
+\*Cómo funciona:
 
-1. Con `document.getElementById()` obtengo las secciones `#mode-edit` y `#mode-quiz`.
-2. Con `addEventListener("click", ...)` escucho los clics de cada botón del menú.
-3. Dentro de cada listener: `classList.add("hidden")` oculta la sección que no corresponde y `classList.remove("hidden")` muestra la elegida.
+1.  con getElementById("mode-edit-btn").addEventListener("click", llamo cunado da click
+2.  con esto oculto: .classList.add("ocultar");
+3.  con eso muestro: .classList.remove("ocultar");
 
+## preguntas con JavaScrip
 
+Las preguntas deben de estar en una estrucutra de datos
+
+```
+const preguntas = [
+{
+question: "colores?",
+options: ["azul", "verde", "rojo", "púrpura"],
+answerIndex: 0,
+},
+{
+question: "2 + 2?",
+options: ["3", "4", "5", "22"],
+answerIndex: 1,
+},
+{
+question: "cuale es el planeta mas cercano al sol?",
+options: ["Venus", "Tierra", "Mercurio", "Marte"],
+answerIndex: 2,
+},
+];
+```
+
+con .innerHTML puedo agregar HTML en cualquier lugar.
+
+El plan es, en el HTML tengo un div 
+
+\<div id="espacio-preguntas">\</div>
+
+en JS puedo agregar le cosas con 
+
+document.getElementById("espacio-preguntas").innerHTML = \`HTML\`;
+
+otro punto importate es 
+
+html += \`\</div>\`;
+
+ con += html voy agregndo cosas al html para despues solo insertar este objeto

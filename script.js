@@ -12,7 +12,7 @@ document.getElementById("mode-edit-btn").addEventListener("click", () => {
   document.getElementById("mode-edit").classList.remove("ocultar");
 });
 
-
+   // estructura de datos de preguntas 
 const preguntas = [
   {
     question: "colores?",
@@ -30,3 +30,34 @@ const preguntas = [
     answerIndex: 2,
   },
 ];
+
+
+                                                                                  
+                                                                                
+function mostrarPregunta(index) {                                                                                             
+  const pregunta = preguntas[index];                                                                                          
+  const display = document.getElementById("espacio-preguntas");                                                                
+                                                                                                                              
+  // Empezamos el HTML con el h2 y la apertura del div                                                                        
+  let html = `                                                                                                                
+    <h2 id="question-text">${pregunta.question}</h2>                                                                          
+    <div id="options-container">                                                                                              
+  `;                                                                                                                          
+                                                                                                                              
+  // Recorremos las opciones                                                                       
+  for (let i = 0; i < pregunta.options.length; i++) {                                                                         
+    html +=                                                                                                                   
+      '<label>' +                                                                                                             
+      '<input type="radio" name="option" data-option="' + i + '" value="' + i + '" />' +                                      
+      pregunta.options[i] +                                                                                                   
+      '</label>';                                                                                                             
+  }                                                                                                                           
+                                                                                                                              
+  // Cerramos el div y recién AHORA asignamos innerHTML (una sola vez)                                                        
+  html += `</div>`;                                                                                                           
+                                                                                                                              
+  display.innerHTML = html;                                                                                                   
+}                                                                                                                             
+                                                                                                                                 
+   // Mostrar la primera pregunta al cargar                                                                                      
+   mostrarPregunta(2);    
