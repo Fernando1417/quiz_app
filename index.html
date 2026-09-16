@@ -16,12 +16,13 @@
   <body>
     <section id="menu-modos">
       <h1>Menu</h1>
-      <button id="mode-edit-btn">Crear Pregunta</button>
+      <button id="mode-add-btn">Crear Pregunta</button>
       <button id="mode-quiz-btn">Quiz</button>
+      <button id="mode-edit-btn">Editar Preguntas</button>
     </section>
 
     <!-- Parte para crear preguntas -->
-    <section id="mode-edit" class="ocultar">
+    <section id="mode-add" class="ocultar">
       <h1>Crea una pregunta</h1>
 
       <form id="question-form">
@@ -87,6 +88,14 @@
 
       <!-- Question display area -->
       <div id="espacio-preguntas"></div>
+    </section>
+
+    <!-- Parte para crear preguntas -->
+    <section id="mode-edit" class="ocultar">
+      <h1>Editar Preguntas</h1>
+
+      <!-- Question display area -->
+      <div id="espacio-edit"></div>
     </section>
 
     <script src="script.js" defer></script>

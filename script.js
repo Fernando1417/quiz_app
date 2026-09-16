@@ -1,15 +1,23 @@
 
 
-
 document.getElementById("mode-quiz-btn").addEventListener("click", () => {
-  document.getElementById("mode-edit").classList.add("ocultar");
+  document.getElementById("mode-add").classList.add("ocultar");
+    document.getElementById("mode-edit").classList.add("ocultar");
   document.getElementById("mode-quiz").classList.remove("ocultar");
 });
 
 
 document.getElementById("mode-edit-btn").addEventListener("click", () => {
+  document.getElementById("mode-add").classList.add("ocultar");
+    document.getElementById("mode-edit").classList.remove("ocultar");
   document.getElementById("mode-quiz").classList.add("ocultar");
-  document.getElementById("mode-edit").classList.remove("ocultar");
+});
+
+
+document.getElementById("mode-add-btn").addEventListener("click", () => {
+  document.getElementById("mode-add").classList.remove("ocultar");
+  document.getElementById("mode-edit").classList.add("ocultar");
+    document.getElementById("mode-quiz").classList.add("ocultar");
 });
 
    // estructura de datos de preguntas 
@@ -165,7 +173,50 @@ document.getElementById("guardar-btn").addEventListener("click", (evento) => {
   preguntas.push(nuevaPregunta);
 
   mostrarPreguntas(); // muy imporate! crear esto
-
+  mostrarPreguntasEdit() 
 });
 
 
+// editar 
+
+                                                                                
+function mostrarPreguntasEdit() {
+  const display = document.getElementById("espacio-edit");
+
+  let html = "";
+
+  // for para todas las preguntas 
+  for (let indice = 0; indice < preguntas.length; indice++) {
+    const pregunta = preguntas[indice];
+
+
+
+    // dentro de for deberia usar class no ID en este for 
+    html += `
+      <h2 class="question-text">${pregunta.question}</h2> 
+      <div class="options-container" data-indice="${indice}">
+    `;
+
+    // como son varias opciones de cada pregunta
+    // esto tambien flexible para el nuemro de opciones
+    for (let i = 0; i < pregunta.options.length; i++) {
+      // este for puede ser su propia funcion 
+      html +=
+        '<label>' +
+        '<input type="radio" name="option-' + indice + '" data-option="' + i + '" value="' + i + '" />' +
+        pregunta.options[i] +
+        '</label>';
+    }
+
+    html += `</div>
+    <button class="guardar-btn" data-indice="${indice}">guardar</button>
+
+    <div class="separador"></div>
+
+    `;
+  }
+
+  display.innerHTML = html;
+}
+
+mostrarPreguntasEdit() 
